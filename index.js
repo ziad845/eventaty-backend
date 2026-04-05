@@ -28,6 +28,11 @@ app.use("/uploads", express.static("src/uploads"));
 // Routes
 app.use(appRoutes);
 
+// ✅ مهم جدًا (حل مشكلة Railway)
+app.get("/", (req, res) => {
+  res.send("API is working 🚀");
+});
+
 // 404 Handler
 app.use((req, res, next) => {
   next(
