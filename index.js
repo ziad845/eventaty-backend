@@ -25,13 +25,16 @@ app.use(expressMongoSanitize());
 // Static files
 app.use("/uploads", express.static("src/uploads"));
 
-// Routes
-app.use(appRoutes);
 
-// ✅ مهم جدًا (حل مشكلة Railway)
+// ✅ مهم جدًا: لازم قبل أي routes تانية
 app.get("/", (req, res) => {
   res.send("API is working 🚀");
 });
+
+
+// Routes
+app.use(appRoutes);
+
 
 // 404 Handler
 app.use((req, res, next) => {
